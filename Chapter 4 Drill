@@ -1,0 +1,115 @@
+#include <std_lib_facilities.h>
+
+//Programming Principles and Practice Using C++, Chapter 4 Drill
+double conversion(double entered_value, string unit, string new_unit)
+{
+    if(unit == new_unit)
+        return entered_value;
+    if(unit == "cm") {
+        if(new_unit == "m")
+            entered_value /= 100;
+        if(new_unit == "in")
+            entered_value /= 2.54;
+        if(new_unit == "ft")
+            entered_value = (entered_value / 2.54) / 12;
+
+    }
+    if(unit == "m") {
+        if(new_unit == "cm")
+            entered_value *= 100;
+        if(new_unit == "in")
+            entered_value = (entered_value * 100) / 2.54;
+        if(new_unit == "ft")
+            entered_value = ((entered_value * 100) / 2.54) / 12;
+    }
+    if(unit == "in") {
+        if(new_unit == "cm")
+            entered_value *= 2.54;
+        if(new_unit == "m")
+            entered_value = (entered_value * 2.54) / 100;
+        if(new_unit == "ft")
+            entered_value /= 12;
+    }
+    if(unit == "ft") {
+        if(new_unit == "cm")
+            entered_value = (entered_value * 12) * 2.54;
+        if(new_unit == "in")
+            entered_value *= 12;
+        if(new_unit == "m")
+            entered_value = ((entered_value * 12) * 2.54) / 100;
+    }
+    return entered_value;
+}
+
+
+
+int main()
+{
+    vector<double>val;                                                                          //vector for enter values
+    vector<double>n_val;                                                                        //vector for new values
+    cout << "Enter unit (cm, m, in, ft)\n";                                                     //Prompt user to enter in units
+    string unit;
+    string converted_unit;
+
+
+    //Conditions for units entered
+    while(cin >> unit) {
+        if(unit == "cm" || unit == "m" || unit == "in" || unit == "ft"){
+            cout << "Enter a unit to convert to (cm, m, in, ft)\n";                             //Prompt user to enter in units to convert to
+            while(cin >> converted_unit) {
+                if(converted_unit == "cm" || converted_unit == "m" || converted_unit == "in" || converted_unit == "ft")
+                    break;
+                else
+                    cout << "Please enter the correct units to convert to\n";                   //Prompt user to enter the correct units
+            }
+        }
+        if(converted_unit == "cm" || converted_unit == "m" || converted_unit == "in" || converted_unit == "ft")
+                break;
+        else
+            cout << "Please enter the correct units\n";                                         //Prompt user to enter the correct units
+    }
+
+
+    cout << "Enter a numerical value then press enter. To quit enter \"|\"\n";                  //Prompt user to enter numerical values
+
+
+    //Add numerical value to vector
+    double entered_value;
+    double sum = 0;
+    while(cin >> entered_value) {
+        if(entered_value == '|')
+            break;
+        val.push_back(entered_value);                                                           //add entered value into vector
+        sort(val.begin(), val.end());                                                           //sort vector values from least to greatest
+
+
+        double new_value = conversion(entered_value, unit, converted_unit);                    //convert numerical values to new units
+        n_val.push_back(new_value);                                                            //add value to new vector
+        sort(n_val.begin(), n_val.end());                                                      //sort new values from least to greatest
+
+
+        //outputs
+        if(n_val[0] == new_value) cout << n_val[0] << converted_unit << " is smallest so far\n";
+        if(n_val[n_val.size() -1] == new_value) cout << n_val[n_val.size() -1] << converted_unit << " is greatest so far\n";
+
+
+        //calculate sum of numerical values
+        sum += new_value;
+
+    }
+
+
+    //Print smallest and largest values, the number of values, and the sum of values
+    cout << "smallest value: " << n_val[0] << converted_unit << endl
+         << "greatest value: " << n_val[n_val.size() - 1] << converted_unit << endl
+         << "number of values: " << n_val.size() << endl
+         << "sum of values: " << sum << endl;
+
+
+    //Print values
+    cout << "values entered and conversions:\n";
+    for(int i = 0; i < val.size(); ++i) {
+        cout << val[i] << unit << " == " << n_val[i] << converted_unit << endl;
+    }
+
+}
