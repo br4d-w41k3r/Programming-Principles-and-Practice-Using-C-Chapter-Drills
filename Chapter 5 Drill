@@ -1,0 +1,44 @@
+#include <std_lib_facilities.h>
+
+//Chapter 5 Drill
+
+int main()
+try {
+        cout << "Success!\n";
+        cout << "Success!\n";
+        cout << "Success" << "!\n";
+        cout << "success" << endl;
+        string res = "7"; vector<string> v(10); v[5] = res;cout <<"Success!\n";
+        vector<int> d(10); d[5] = 7; if (d[5] = 7) cout << "Success!\n";
+        if (true) cout << "Success!\n"; else cout << "Fail!\n";
+        bool c = true; if (c) cout << "Success!\n"; else cout << "Fail!\n";
+        string s = "ape"; c = "fool" > s; if (c) cout << "Success!\n";
+        s = "ape"; if (s != "fool") cout << "Success!\n";
+        s = "ape"; if (s != "fool") cout << "Success!\n";
+        s = "ape"; if (s != "fool") cout << "Success!\n";
+        vector<char> f(5); for (int i = 0; i < f.size(); ++i); cout << "Success!\n";
+        vector<char> g(5); for (int i = 0; i <= g.size(); ++i); cout << "Success!\n";
+        s = "Success!\n"; for (int i = 0; i < 6; ++ i) cout << s;
+        if (true) cout << "Success!\n"; else cout << "Fail!\n";
+        int x = 2000; int t = x; if (t == 2000) cout << "Success!\n";
+        s = "Success!\n"; for (int i = 0; i < 10; ++i) cout << s;
+        vector<int>  h(5); for (int i = 0; i <= h.size(); i++); cout << "Success!\n";
+        int i = 0; int j = 9; while (i < 10) ++i; if (j < i) cout << "Success!\n";
+        x = 3; double k = 5/ (x-2); if (k = 2 * x - 1) cout << "Success!\n";
+        string b= "Success!\n"; for (int i = 0; i <= 10; ++i) cout << b;
+        i = 0; while (i < 10) ++i; if (i) cout << "Success!\n";
+        x = 3; k = 5 / (x-2); if (k = 2 * x - 1) cout << "Success!\n";
+        cout << "Success!\n";
+        keep_window_open();
+        return 0;
+}
+catch (exception& e) {
+    cerr << "error: " << e.what() << '\n';
+    keep_window_open();
+    return 1;
+}
+catch (...) {
+    cerr << "Oops: unknown exception!\n";
+    keep_window_open();
+    return 2;
+}
