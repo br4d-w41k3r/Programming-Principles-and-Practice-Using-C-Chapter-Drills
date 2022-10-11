@@ -1,0 +1,6 @@
+﻿  Source.cpp
+C:\MinGW\include\GUI\Graph.h(111,1): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
+C:\MinGW\include\GUI\Graph.h(111): message : while compiling class template member function 'int Graph_lib::Vector_ref<Graph_lib::Button>::size(void) const'
+C:\MinGW\include\GUI\GUI.h(100): message : see reference to function template instantiation 'int Graph_lib::Vector_ref<Graph_lib::Button>::size(void) const' being compiled
+C:\MinGW\include\GUI\GUI.h(95): message : see reference to class template instantiation 'Graph_lib::Vector_ref<Graph_lib::Button>' being compiled
+  Chapter 12 Drill.vcxproj -> C:\Users\bradw\OneDrive\Documents\C++\C++ Practice\Graphics Practice\Chapter 12 Drill\x64\Debug\Chapter 12 Drill.exe
